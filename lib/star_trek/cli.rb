@@ -4,15 +4,10 @@ class StarTrek::CLI
     get_series
     list_series
     get_user_series
-    # get_seasons_for(series)
-    # list_seasons
-    # get_episodes(season)
-    # List_episode
   end
   
   
   def get_series
-
     # StarTrek::Series.new("TNG")
     # StarTrek::Series.new("DS9")
     @series = StarTrek::Series.all
@@ -36,12 +31,10 @@ class StarTrek::CLI
   
   def show_seasons_for(chosen_series)
     series = @series[chosen_series - 1]
-    seasons = series.seasons
+    series.get_seasons
     puts "Please select a season for #{series.name}."
-    # # To implement
-    # StarTrek::Episodes.all.each.with_index(1) do | event |
-    #   puts episodes.name
-    # end
-    # get_user_episode
+    series.seasons.each.with_index(1) do |seasons, index|
+      puts "#{index}. #{seasons.name}"
+    end
   end
 end
