@@ -4,6 +4,8 @@ require_relative "./star_trek/series"
 require_relative "./star_trek/apiget"
 
 require 'pry'
+require 'rest-client'
+require 'json'
 
 module StarTrek
   class Error < StandardError; end
